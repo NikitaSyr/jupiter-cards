@@ -1,17 +1,18 @@
 import React from 'react';
 import './App.css';
+import {Portfolio} from "./components/Portfolio/Portfolio";
 
 function App() {
-  return (
-    <div className="app">
-      <div className="app__wrapper">
+    return (
+        <div className="app">
+            <div className="app__wrapper">
+                <header className="app__header">
 
-      </div>
-      <header className="App-header">
-
-      </header>
-    </div>
-  );
+                </header>
+                <Portfolio/>
+            </div>
+        </div>
+    );
 }
 
 export default App;
