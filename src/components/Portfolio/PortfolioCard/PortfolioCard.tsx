@@ -7,11 +7,21 @@ type PropsType = {
     image: string
     isSelected: boolean
     changeSelectedCategoryHandler: Function
+    toggleIsSelectedHandler: Function
 }
 
-export const PortfolioCard: React.FC<PropsType> = ({image, name, category, changeSelectedCategoryHandler}) => {
+export const PortfolioCard: React.FC<PropsType> = ({
+                                                       cardId,
+                                                       image,
+                                                       name,
+                                                       category,
+                                                       isSelected,
+                                                       changeSelectedCategoryHandler,
+                                                       toggleIsSelectedHandler
+                                                   }) => {
+    console.log(isSelected)
     return (
-        <div>
+        <div onClick={() => toggleIsSelectedHandler(cardId)}>
             {/*<img src={image} alt="Portfolio card "/>*/}
             {category}
             <button onClick={() => changeSelectedCategoryHandler(category)}>Change category</button>

@@ -14,19 +14,24 @@ export const Portfolio = () => {
         dispatch(actions.setCardsListAC(cardsLocalDB));
     }, [dispatch])
 
-    const changeSelectedCategoryHandler = (category: string) => {
-        dispatch(actions.changeSelectedCategoryAC(category));
-    }
-
     const loadMoreData = () => {
-        for (let i = 1; i <= LOAD_DATA_PORTION_AMOUNT; i++ ) {
+        for (let i = 1; i <= LOAD_DATA_PORTION_AMOUNT; i++) {
             //TODO
             // Check multiple dispatch optimization
             dispatch(actions.addNewCardsToListAC())
         }
     }
 
-    function getFilteredList() {
+    const changeSelectedCategoryHandler = (category: string) => {
+        dispatch(actions.changeSelectedCategoryAC(category));
+    }
+
+
+    const toggleIsSelectedHandler = (cardId: string) => {
+        dispatch(actions.toggleIsSelectedCardByIdAC(cardId))
+    }
+
+    const getFilteredList = () => {
         if (!currentSelectedCategory) {
             return portfolioCardsList;
         }
@@ -34,7 +39,7 @@ export const Portfolio = () => {
     }
 
     const portfolioItemsList = getFilteredList().map(item => (
-        <PortfolioCard {...item} key={item.cardId} changeSelectedCategoryHandler={changeSelectedCategoryHandler}/>
+        <PortfolioCard {...item} key={item.cardId} changeSelectedCategoryHandler={changeSelectedCategoryHandler} toggleIsSelectedHandler={toggleIsSelectedHandler}/>
     ))
 
     const portfolioCategoriesButtonsList = categoriesDB.map(item => (
@@ -45,7 +50,8 @@ export const Portfolio = () => {
     return (
         <div>
             <div>
-                <CategoriesButton category={""} key={"Show all"} buttonText={"Show all"} onClickHandle={changeSelectedCategoryHandler}/>
+                <CategoriesButton category={""} key={"Show all"} buttonText={"Show all"}
+                                  onClickHandle={changeSelectedCategoryHandler}/>
                 {portfolioCategoriesButtonsList}
             </div>
             <div>{currentSelectedCategory}</div>

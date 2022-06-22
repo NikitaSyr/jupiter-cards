@@ -1,4 +1,9 @@
-import {ADD_PORTFOLIO_DATA, CHANGE_SELECTED_CATEGORY, SET_PORTFOLIO_DATA} from "../redux/portfolioReducer";
+import {
+    ADD_PORTFOLIO_DATA,
+    CHANGE_SELECTED_CATEGORY,
+    SET_PORTFOLIO_DATA,
+    TOGGLE_IS_CARD_SELECTED
+} from "../redux/portfolioReducer";
 
 export interface ICardType {
     cardId: string
@@ -22,10 +27,16 @@ export interface ChangeSelectedCategory {
     payload: string
 }
 
+export interface ToggleIsCardSelected {
+    type: typeof TOGGLE_IS_CARD_SELECTED;
+    payload: string
+}
+
 export type AuthActions =
     | SetPortfolioData
     | AddPortfolioData
     | ChangeSelectedCategory
+    | ToggleIsCardSelected
 
 // export type CardCategoryFilter = CardCategory | "Show all"
 //
