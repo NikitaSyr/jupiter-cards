@@ -8,10 +8,11 @@ type PropsType = {
     isSelected: boolean
 }
 
-export const PortfolioCard: React.FC<PropsType> = ({image}) => {
+export const PortfolioCard: React.FC<PropsType> = ({image, name}) => {
     return (
         <div>
-            <img src={image} alt="Portfolio card "/>
+            {/*<img src={image} alt="Portfolio card "/>*/}
+            {name}
         </div>
     )
 }

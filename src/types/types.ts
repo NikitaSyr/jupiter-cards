@@ -1,4 +1,4 @@
-import {SET_PORTFOLIO_DATA} from "../redux/portfolioReducer";
+import {ADD_PORTFOLIO_DATA, SET_PORTFOLIO_DATA} from "../redux/portfolioReducer";
 
 export interface ICardType {
     cardId: string
@@ -13,5 +13,14 @@ export interface SetPortfolioData {
     payload: ICardType[]
 }
 
+export interface AddPortfolioData {
+    type: typeof ADD_PORTFOLIO_DATA;
+}
+
 export type AuthActions =
     | SetPortfolioData
+    | AddPortfolioData
+
+export enum CardCategory {
+    Branding, Motion, Design, Sport
+}
