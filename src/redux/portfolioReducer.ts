@@ -1,18 +1,22 @@
-import {AddPortfolioData, AuthActions, CardCategory, ICardType, SetPortfolioData} from "../types/types";
+import {AddPortfolioData, AuthActions, ChangeSelectedCategory, ICardType, SetPortfolioData} from "../types/types";
 import {AppState} from "./reduxStore";
-import {capitalizeFirstLetter, randomEnum, randomItemFromArray} from "../utils/helpers";
-import {imagesDB, wordsDB} from "../localDB";
+import {capitalizeFirstLetter, randomEnum, randomItemFromArray} from "../utils/utils";
+import {categoriesDB, imagesDB, wordsDB} from "../localDB";
+import {v4 as uuidv4} from "uuid";
 
 export const SET_PORTFOLIO_DATA = "jupiter-cards/portfolio/SET_PORTFOLIO_DATA"
 export const ADD_PORTFOLIO_DATA = "jupiter-cards/portfolio/ADD_PORTFOLIO_DATA"
+export const CHANGE_SELECTED_CATEGORY = "jupiter-cards/portfolio/CHANGE_SELECTED_CATEGORY"
 
 
 interface IState {
     portfolioData: ICardType[]
+    selectedCategory: string
 }
 
 const initialState: IState = {
-    portfolioData: []
+    portfolioData: [],
+    selectedCategory: ""
 }
 
 const portfolioReducer = (state = initialState, action: AuthActions): IState => {
@@ -24,11 +28,11 @@ const portfolioReducer = (state = initialState, action: AuthActions): IState => 
             }
         }
         case ADD_PORTFOLIO_DATA: {
-            const randomId = Date.now().toString()
-            const randomCategory = randomEnum(CardCategory).toString();
+            const randomId = uuidv4();
+            const randomCategory = randomItemFromArray(categoriesDB);
             const randomImage = randomItemFromArray(imagesDB);
             const randomName = capitalizeFirstLetter(randomItemFromArray(wordsDB))
-            const newPortfolioCard: ICardType  = {
+            const newPortfolioCard: ICardType = {
                 cardId: randomId,
                 name: randomName,
                 category: randomCategory,
@@ -38,6 +42,12 @@ const portfolioReducer = (state = initialState, action: AuthActions): IState => 
             return {
                 ...state,
                 portfolioData: [...state.portfolioData, newPortfolioCard]
+            }
+        }
+        case CHANGE_SELECTED_CATEGORY: {
+            return {
+                ...state,
+                selectedCategory: action.payload
             }
         }
         default:
@@ -52,11 +62,19 @@ export const actions = {
     }),
     addNewCardsToListAC: (): AddPortfolioData => ({
         type: ADD_PORTFOLIO_DATA,
+    }),
+    changeSelectedCategoryAC: (payload: string): ChangeSelectedCategory => ({
+        type: CHANGE_SELECTED_CATEGORY,
+        payload
     })
 }
 
 export const getPortfolioData = (state: AppState): ICardType[] => {
     return state.portfolioPage.portfolioData
+}
+
+export const getSelectedCategory = (state: AppState): string => {
+    return state.portfolioPage.selectedCategory
 }
 
 export default portfolioReducer;

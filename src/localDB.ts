@@ -66,6 +66,10 @@ export const cardsLocalDB: Array<ICardType> = [
     }
 ];
 
+export const categoriesDB: Array<string> = [
+    "Illustration", "Motion", "Design", "Branding"
+]
+
 export const imagesDB: Array<string> = [
     "https://i.imgur.com/XFg7aGU.png",
     "https://i.imgur.com/iOg5dMq.png",
