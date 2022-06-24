@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/jupiter-cards/static/css/main.92b39a88.css",
+    "main.js": "/jupiter-cards/static/js/main.50801f49.js",
+    "static/media/Epilogue-ExtraBold.ttf": "/jupiter-cards/static/media/Epilogue-ExtraBold.fba84a089cac3433d854.ttf",
+    "static/media/Epilogue-Regular.ttf": "/jupiter-cards/static/media/Epilogue-Regular.10c41766bc24462ff98e.ttf",
+    "index.html": "/jupiter-cards/index.html",
+    "main.92b39a88.css.map": "/jupiter-cards/static/css/main.92b39a88.css.map",
+    "main.50801f49.js.map": "/jupiter-cards/static/js/main.50801f49.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.92b39a88.css",
+    "static/js/main.50801f49.js"
+  ]
+}
