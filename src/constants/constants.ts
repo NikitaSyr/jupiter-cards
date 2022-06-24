@@ -1,1 +1,2 @@
 export const LOAD_DATA_PORTION_AMOUNT = 9;
+export const MOBILE_LAYOUT_WIDTH = 1040;

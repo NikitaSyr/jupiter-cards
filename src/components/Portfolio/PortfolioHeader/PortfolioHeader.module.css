@@ -1,0 +1,33 @@
+.portfolio__header {
+    height: 320px;
+    width: 100%;
+    background-color: #28293E;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.header__name {
+    font-family: "Epilogue-Regular", cursive;
+    font-size: 72px;
+    line-height: 80px;
+    letter-spacing: -0.02778em;
+}
+
+.header__text {
+    color: rgba(255, 255, 255, 0.64);
+    max-width: 45%;
+}
+
+@media all and (max-width: 1039px) {
+    .header__name {
+        font-size: 56px;
+        line-height: 64px;
+        letter-spacing: -0.01786em;
+    }
+
+    .header__text {
+        max-width: 87%;
+    }
+}

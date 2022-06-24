@@ -1,0 +1,10 @@
+.portfolio__button{
+    margin: 70px auto;
+    padding: 16px 45px;
+    font-size: 14px;
+    color: #391400;
+    background-color: #fff;
+    font-family: "Epilogue-Regular", sans-serif;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px 1px #707070;
+}

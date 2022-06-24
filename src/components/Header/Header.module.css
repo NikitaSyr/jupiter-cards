@@ -1,0 +1,42 @@
+.header{
+    background-color: #28293E;
+}
+
+.header__row{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.header__navigation{
+    display: flex;
+    padding-top: 16px;
+}
+
+.header__button{
+    font-size: 16px;
+    line-height: 32px;
+    color: #FFFFFF;
+    background-color: #28293E;
+    border-radius: 5px;
+}
+
+.button__logo{
+    margin: 16px 0;
+}
+
+.button__navigation{
+    margin-right: 80px;
+    padding: 0 5px;
+}
+
+.button__navigation:last-child{
+    margin-right: 0;
+}
+
+.button__contact{
+    padding: 8px 30px 6px;
+    margin: 20px 0 12px;
+    border: 1px solid rgba(255, 255, 255, 0.29);
+}

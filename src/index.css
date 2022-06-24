@@ -11,3 +11,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@font-face {
+  font-family: "Epilogue-Regular";
+  src: local("Epilogue-Regular"),
+  url("./fonts/Epilogue/Epilogue-Regular.ttf") format("truetype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Epilogue-ExtraBold";
+  src: local("Epilogue-ExtraBold"),
+  url("./fonts/Epilogue/Epilogue-ExtraBold.ttf") format("truetype");
+  font-weight: 700;
+}

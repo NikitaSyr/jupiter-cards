@@ -1,0 +1,34 @@
+.portfolio{
+    width: 100%;
+    height: 100%;
+}
+.portfolio__content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /*border: 1px solid #90E149;*/
+}
+
+.content__row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin: 0 5%;
+    max-width: 1850px;
+}
+
+/*@media all and (min-width: 2130px) {*/
+/*    .content__row{*/
+/*        justify-content: space-evenly;*/
+/*        width: 1900px;*/
+/*    }*/
+/*}*/
+
+/*@media all and (min-width: 2370px) {*/
+/*    .content__row{*/
+/*        flex: 0 1 45%;*/
+/*        margin: 0 auto;*/
+/*    }*/
+/*}*/

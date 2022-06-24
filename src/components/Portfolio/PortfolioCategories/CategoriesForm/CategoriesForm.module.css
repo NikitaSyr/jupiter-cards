@@ -1,0 +1,15 @@
+.categories__form{
+    border: 1px solid #F3D1BF;
+    font-family: "Epilogue-Regular", sans-serif;
+    position: relative;
+    margin: 32px auto 40px;
+}
+
+.categories__form select{
+    font-family: "Epilogue-Regular", sans-serif;
+    font-size: 16px;
+    line-height: 32px;
+    width: 329px;
+    height: 48px;
+    padding: 13px 5px 14px 16px;
+}

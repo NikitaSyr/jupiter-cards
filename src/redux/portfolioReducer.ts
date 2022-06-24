@@ -1,4 +1,11 @@
-import {AddPortfolioData, AuthActions, ChangeSelectedCategory, ICardType, SetPortfolioData} from "../types/types";
+import {
+    AddPortfolioData,
+    AuthActions,
+    ChangeSelectedCategory, DeleteSelectedCards,
+    ICardType,
+    SetPortfolioData,
+    ToggleIsCardSelected
+} from "../types/types";
 import {AppState} from "./reduxStore";
 import {capitalizeFirstLetter, randomItemFromArray} from "../utils/utils";
 import {categoriesDB, imagesDB, wordsDB} from "../localDB";
@@ -8,6 +15,7 @@ export const SET_PORTFOLIO_DATA = "jupiter-cards/portfolio/SET_PORTFOLIO_DATA"
 export const ADD_PORTFOLIO_DATA = "jupiter-cards/portfolio/ADD_PORTFOLIO_DATA"
 export const CHANGE_SELECTED_CATEGORY = "jupiter-cards/portfolio/CHANGE_SELECTED_CATEGORY"
 export const TOGGLE_IS_CARD_SELECTED = "jupiter-cards/portfolio/TOGGLE_IS_CARD_SELECTED"
+export const DELETE_SELECTED_CARDS = "jupiter-cards/portfolio/DELETE_SELECTED_CARDS"
 
 
 interface IState {
@@ -60,6 +68,13 @@ const portfolioReducer = (state = initialState, action: AuthActions): IState => 
                 portfolioData: modifiedList
             }
         }
+        case DELETE_SELECTED_CARDS: {
+            const modifiedList = state.portfolioData.filter(item => !item.isSelected)
+            return {
+                ...state,
+                portfolioData: modifiedList
+            }
+        }
         default:
             return state;
     }
@@ -77,9 +92,12 @@ export const actions = {
         type: CHANGE_SELECTED_CATEGORY,
         payload
     }),
-    toggleIsSelectedCardByIdAC: (payload: string) => ({
+    toggleIsSelectedCardByIdAC: (payload: string): ToggleIsCardSelected => ({
         type: TOGGLE_IS_CARD_SELECTED,
         payload
+    }),
+    deleteSelectedCardsAC: (): DeleteSelectedCards => ({
+        type: DELETE_SELECTED_CARDS
     })
 }
 

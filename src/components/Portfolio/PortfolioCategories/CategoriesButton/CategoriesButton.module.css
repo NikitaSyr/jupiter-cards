@@ -1,0 +1,18 @@
+.categories__button{
+    background-color: #FDF0E9;
+    color: #8B572A;
+    font-family: Epilogue-Regular, sans-serif;
+    font-size: 16px;
+    line-height: 32px;
+    padding: 0 3px;
+    margin: 80px 70px 80px 0;
+    white-space: nowrap;
+}
+
+.categories__button:last-child{
+    margin-right: 0;
+}
+
+.active__button{
+    color: #16CD53;
+}
